@@ -1,8 +1,11 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+//Class mère de tout les ojects de ce jeu (faisant référence à ID)
+
 public abstract class GameObject {
 	
+	// Attributs communs
 	protected int x, y;
 	protected float velX = 0, velY = 0;
 	protected ID id;
