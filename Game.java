@@ -9,10 +9,13 @@ public class Game  extends Canvas implements Runnable{
 	
 	private boolean isRunning = false;
 	private Thread thread;
+	private Handler handler;
 
 	public Game() {
 		new Window(1000, 563, "Jeu2D", this);
 		start();
+		
+		handler = new Handler();
 	}
 	
 	public void start() {
@@ -58,7 +61,7 @@ public class Game  extends Canvas implements Runnable{
 	}
 	
 	public void thick() {
-		
+		handler.tick();
 	}
 	
 	public void render() {
@@ -71,9 +74,11 @@ public class Game  extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		
 		/////////////////////////////////
-		
+
 		g.setColor(Color.red);
 		g.fillRect(0, 0, 1000, 563);
+		
+		handler.render(g);
 		
 		/////////////////////////////////
 		
