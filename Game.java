@@ -30,6 +30,7 @@ public class Game  extends Canvas implements Runnable{
 		}
 	}
 	
+	//Démarre lors de thread.start();
 	public void run() {
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -61,6 +62,7 @@ public class Game  extends Canvas implements Runnable{
 		
 	}
 	
+	//Affichage graphisme
 	public void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
