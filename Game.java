@@ -20,6 +20,7 @@ public class Game  extends Canvas implements Runnable{
 	private BufferedImage floor = null;
 	
 	public int ammo = 100;
+	public int hp = 100;
 
 	public Game() {
 		new Window(1000, 563, "Jeu2D", this);
@@ -118,6 +119,16 @@ public class Game  extends Canvas implements Runnable{
 		handler.render(g);
 		
 		g2d.translate(camera.getX(), camera.getY());
+		
+		g.setColor(Color.gray);
+		g.fillRect(5, 5, 200, 32);
+		g.setColor(Color.green);
+		g.fillRect(5, 5, hp*2, 32);
+		g.setColor(Color.black);
+		g.drawRect(5, 5, 200, 32);
+		
+		g.setColor(Color.white);
+		g.drawString("Ammo : " +ammo, 5, 50);
 		
 		/////////////////////////////////
 		

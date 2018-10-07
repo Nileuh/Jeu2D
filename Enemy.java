@@ -12,20 +12,25 @@ public class Enemy extends GameObject{
 	int choose = 0;
 	int hp = 100;
 	
-	private BufferedImage enemy_image;
+	private BufferedImage[] enemy_image = new BufferedImage[3];
+	Animation anim;
 
 	public Enemy(int x, int y, ID id, Handler handler, SpriteSheet ss) {
 		super(x, y, id, ss);
 		this.handler = handler;
 		
-		enemy_image = ss.grabImage(4, 1, 32, 48);
+		enemy_image[0] = ss.grabImage(4, 1, 32, 48);
+		enemy_image[1] = ss.grabImage(5, 1, 32, 48);
+		enemy_image[2] = ss.grabImage(6, 1, 32, 48);
+		
+		anim = new Animation(3, enemy_image[0], enemy_image[1], enemy_image[2]);
 	}
 
 	public void tick() {
 		x += velX;
 		y += velY;
 		
-		//Deplacement ennemis
+		//Deplacement ennemis et vitesse
 		
 		choose = r.nextInt(10);
 		
@@ -39,8 +44,8 @@ public class Enemy extends GameObject{
 					velX *= -1;
 					velY *= -1;
 				} else if (choose == 0) {
-					velX = (r.nextInt(4 - -4) + -4);
-					velY = (r.nextInt(4 - -4) + -4);
+					velX = (r.nextInt(1 - -1) + -1);
+					velY = (r.nextInt(1 - -1) + -1);
 				}
 			}
 			
@@ -51,12 +56,12 @@ public class Enemy extends GameObject{
 				}
 			}
 		}
-		
+		anim.runAnimation();
 		if (hp <= 0) handler.removeObject(this);
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(enemy_image, x, y, null);
+		anim.drawAnimation(g, x, y, 0);
 	}
 
 	public Rectangle getBounds() {
