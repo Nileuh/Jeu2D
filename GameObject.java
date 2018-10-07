@@ -28,6 +28,14 @@ public abstract class GameObject {
 		this.x = x;
 	}
 
+	public ID getId() {
+		return id;
+	}
+
+	public void setId(ID id) {
+		this.id = id;
+	}
+
 	public int getY() {
 		return y;
 	}
