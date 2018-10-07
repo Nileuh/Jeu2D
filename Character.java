@@ -5,10 +5,12 @@ import java.awt.Rectangle;
 public class Character extends GameObject {
 	
 	Handler handler;
+	Game game;
 
-	public Character(int x, int y, ID id, Handler handler) {
+	public Character(int x, int y, ID id, Handler handler, Game game) {
 		super(x, y, id);
 		this.handler = handler;
+		this.game = game;
 	}
 
 	public void tick() {
@@ -43,6 +45,13 @@ public class Character extends GameObject {
 					y += velY * -1;
 				}
 			}
+			
+			if (tempObject.getId() == ID.Crate) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					game.ammo += 10;
+					handler.removeObject(tempObject);
+				}
+			}			
 		}
 	}
 
