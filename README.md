@@ -18,6 +18,8 @@ MISE EN PLACE
 				if (key == KeyEvent.VK_S) handler.setDown(true);
 				if (key == KeyEvent.VK_Q) handler.setLeft(true);
 				if (key == KeyEvent.VK_D) handler.setRight(true);
-        
-        Remplacer VK_Z par VK_W
-        ...
+				
+    
+ -Remplacer VK_Z par VK_W, ect...
+ 
+       
