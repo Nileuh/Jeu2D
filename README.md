@@ -2,16 +2,16 @@
 
 MISE EN PLACE
 
-- Créer un projet java avec votre IDE
+- Créer un projet java avec votre IDE.
 
-- Créer un dossier au niveau de votre projet
+- Créer un dossier au niveau de votre projet et ajouter toute les classes de la branche master.
 
-- Faites glisser les deux images PNG dans ce dossier
+- Faites glisser les deux images PNG dans ce dossier.
 
-- Clique droit sur votre projet / properties
-  Onglet librairies / add class folder -> séléctionner le dossier contenant les deux images
+- Clique droit sur votre projet / properties.
+  Onglet librairies / add class folder -> séléctionner le dossier contenant les deux images.
   
-- ZQSD pour se déplacer sinon modifier touches clavier dans KeyInput.java
+- ZQSD pour se déplacer sinon modifier touches clavier dans KeyInput.java.
 
 			if (tempObject.getId() == ID.Player) {
 				if (key == KeyEvent.VK_Z) handler.setUp(true);
