@@ -15,6 +15,8 @@ public class Game  extends Canvas implements Runnable{
 	private Camera camera;
 	private SpriteSheet ss;
 	
+	private Temps t;
+	
 	private BufferedImage level = null;
 	private BufferedImage sprite_sheet = null;
 	private BufferedImage floor = null;
@@ -129,6 +131,7 @@ public class Game  extends Canvas implements Runnable{
 		
 		g.setColor(Color.white);
 		g.drawString("Ammo : " +ammo, 5, 50);
+		g.drawString("Time : "+t.tempsDeJeu(), 120, 50);
 		
 		/////////////////////////////////
 		
@@ -140,6 +143,9 @@ public class Game  extends Canvas implements Runnable{
 	private void loadLevel(BufferedImage image) {
 		int w = image.getWidth();
 		int h = image.getHeight();
+
+		long startTime =System.currentTimeMillis();
+		t = new Temps(startTime);
 		
 		for (int xx = 0 ; xx < w ; xx++) {
 			for (int yy = 0 ; yy < h ; yy++) {
